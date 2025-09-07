@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    <!--    daisy ui or tailwind css setup for cdn link-->
+    <link
+            href="https://cdn.jsdelivr.net/npm/daisyui@5"
+            rel="stylesheet"
+            type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Green Earth Websites</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="w-full bg-[#15803D]">
+    <div class="navbar w-[90%] mx-auto text-white">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                    >
+                        <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16"
+                        />
+                    </svg>
+                </div>
+                <ul
+                        tabindex="0"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                >
+                    <li>
+                        <ul class="p-2 cursor-pointer bg-[#15803D]">
+                            <li><a>About</a></li>
+                            <li><a>Gallery</a></li>
+                            <li><a>Plan a Tree</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <a class="text-xl cursor-pointer">Green Earth</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul>
+                <li>
+                    <ul class="p-2 flex gap-4 cursor-pointer">
+                        <li><a>About</a></li>
+                        <li><a>Galley</a></li>
+                        <li><a>Plant of Tree</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <a
+                    class="py-2 px-6 rounded-3xl bg-yellow-500 text-[#15803D] hover:bg-yellow-400 cursor-pointer"
+            >Plant of Trees</a
+            >
+        </div>
+    </div>
+
+    <section
+            class="bg-[#CFF0DC] relative flex flex-col md:flex-row items-center justify-center text-center md:text-left px-6 py-16"
+    >
+        <img
+                src="./assets/hero-leaf1.png"
+                alt="hero image"
+                class="hidden md:block w-1/4 max-w-xs absolute left-0 bottom-0"
+        />
+
+        <div class="max-w-xl z-10 text-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900">
+                Plant a Tree, Grow a Future
+            </h1>
+            <p class="mt-4 text-gray-600">
+                Join our mission to plant 1 million trees and make the Earth greener
+                for future generations.
+            </p>
+            <button
+                    class="mt-6 bg-yellow-500 hover:bg-yellow-600 text-[#15803D] font-medium px-6 py-2 rounded-full transition"
+            >
+                Get Involved
+            </button>
+        </div>
+
+        <img
+                src="./assets/hero-leaf2.png"
+                alt="hero image"
+                class="hidden md:block w-1/4 max-w-xs absolute right-0 bottom-0"
+        />
+    </section>
+</header>
+
+<main>
+    <section>
+        <h2>Choose Your Trees</h2>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
