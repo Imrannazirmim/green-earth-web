@@ -86,7 +86,7 @@ const displayUniqueCategory = (plants) => {
                                         />
                                     </figure>
                                     <div class="card-body">
-                                        <h2 class="card-title">${plant.name}</h2>
+                                        <h2 onclick="showModalCreating(${plant.id})"  class="card-title">${plant.name}</h2>
                                         <p>
                                            ${plant.description}
                                         </p>
@@ -100,6 +100,44 @@ const displayUniqueCategory = (plants) => {
     `;
     cards.append(createDiv);
   });
+};
+
+// show modal creating
+
+// {
+//   "id": 7,
+//   "image": "https://i.ibb.co.com/FkH6MRhR/banyan-min.jpg",
+//   "name": "Banyan Tree",
+//   "description": "A majestic shade tree with a vast canopy and iconic aerial roots. Revered in many cultures, it offers shelter to countless birds and animals.",
+//   "category": "Shade Tree",
+//   "price": 1200
+// }
+const showModalCreating = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  showModalDisplay(data.plants);
+};
+
+const showModalDisplay = (plant) => {
+  const modalDetails = document.getElementById("modal_details");
+  modalDetails.innerHTML = `
+  <div class="card bg-base-100 w-full">
+  <div class="card-body">
+    <h2 class="card-title text-bold">${plant.name}</h2>
+    <img
+                                                src="${plant.image}"
+                                                alt="${plant.name}"
+                                                class="object-cover h-48 w-full rounded-md"
+                                        />
+    <span>Category: ${plant.category}</span>
+    <span>Price: ${plant.price}</span>
+    <p>Description: ${plant.description}</p>
+    
+  </div>
+</div>
+  `;
+  document.getElementById("card_modal").showModal();
 };
 
 allTreesBtn.addEventListener("click", loadingAllPlants);
