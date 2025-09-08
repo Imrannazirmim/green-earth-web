@@ -3,6 +3,14 @@ const allTreesBtn = document.getElementById("all_tress");
 const priceNumber = document.getElementById("price_number");
 let pricesArray = [];
 
+//menu bar create
+
+const menuBar = document.getElementById("menu-bar");
+const toggleMenu = document.getElementById("toggle-menu");
+menuBar.addEventListener("click", () => {
+  toggleMenu.classList.toggle("active");
+});
+
 const loadingAllPlants = async () => {
   const url = `https://openapi.programming-hero.com/api/plants`;
   const res = await fetch(url);

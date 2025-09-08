@@ -4,53 +4,9 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-/* .sidebar {
+.nav-menu{
+  display: none;
+}
+.nav-menu.active{
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  padding: 1rem 0;
-  white-space: nowrap;
-}
-
-.sidebar::-webkit-scrollbar {
-  height: 4px;
-}
-
-.sidebar::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-  background: #15803d;
-  border-radius: 10px;
-}
-
-@media (min-width: 768px) {
-  .sidebar {
-    flex-direction: column;
-    overflow-x: visible;
-    white-space: normal;
-    max-height: 400px;
-    overflow-y: auto;
-  }
-} */
-.cart{
-  width: 15%;
-  height: 100vh;
-}
-
-@media screen and (max-width: 1592px) {
-  .sidebar {
-    flex-direction: row;
-  }
-}
-@media screen and (max-width: 1292px) {
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-  }
-.cart{
-  width: 100%;
-}
 }
