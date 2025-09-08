@@ -1,13 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 body {
-    font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-/*@media screen and (min-width: 641px) and (max-width: 992px) {*/
+/* .sidebar {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  white-space: nowrap;
+}
 
-/*    img {*/
-/*        width: 30vw;*/
-/*    }*/
-/*}*/
+.sidebar::-webkit-scrollbar {
+  height: 4px;
+}
 
+.sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #15803d;
+  border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    flex-direction: column;
+    overflow-x: visible;
+    white-space: normal;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+} */
+.cart{
+  width: 15%;
+  height: 100vh;
+}
+
+@media screen and (max-width: 1592px) {
+  .sidebar {
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 1292px) {
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+.cart{
+  width: 100%;
+}
+}
