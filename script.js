@@ -5,6 +5,20 @@ let pricesArray = [];
 
 //menu bar create
 
+const showSpinnerLoading = () => {
+  const spinner = document.getElementById("loading-spinner");
+  if (spinner) {
+    spinner.classList.remove("hidden");
+  }
+};
+
+const hideSpinner = () => {
+  const spinner = document.getElementById("loading-spinner");
+  if (spinner) {
+    spinner.classList.add("hidden");
+  }
+};
+
 const menuBar = document.getElementById("menu-bar");
 const toggleMenu = document.getElementById("toggle-menu");
 menuBar.addEventListener("click", () => {
@@ -12,10 +26,16 @@ menuBar.addEventListener("click", () => {
 });
 
 const loadingAllPlants = async () => {
-  const url = `https://openapi.programming-hero.com/api/plants`;
-  const res = await fetch(url);
-  const data = await res.json();
-  displayLoadingAllPlants(data.plants);
+  try {
+    showSpinnerLoading();
+    const url = `https://openapi.programming-hero.com/api/plants`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayLoadingAllPlants(data.plants);
+    hideSpinner();
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 const displayLoadingAllPlants = (plants) => {
@@ -23,9 +43,10 @@ const displayLoadingAllPlants = (plants) => {
   cards.innerHTML = "";
   for (const plant of plants) {
     const createDiv = document.createElement("div");
+
     createDiv.innerHTML = `
       
-                      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                      <div class="bg-white  rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                         <div class="h-48 overflow-hidden">
                             <img src="${plant.image}" alt="${plant.name}"
                                  class="w-full h-full object-cover">
@@ -108,10 +129,16 @@ const categoryDisplaySelection = (categories) => {
 };
 
 const categoryUniqueCard = async (id) => {
-  const url = `https://openapi.programming-hero.com/api/category/${id}`;
-  const res = await fetch(url);
-  const data = await res.json();
-  displayUniqueCategory(data.plants);
+  try {
+    showSpinnerLoading();
+    const url = `https://openapi.programming-hero.com/api/category/${id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayUniqueCategory(data.plants);
+    hideSpinner();
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 const displayUniqueCategory = (plants) => {
@@ -126,7 +153,7 @@ const displayUniqueCategory = (plants) => {
                                  class="w-full h-full object-cover">
                         </div>
                         <div class="p-4">
-                            <h3 onclick="showModalCreating(${plant.id})" class="font-semibold text-lg mb-2">${plant.name}</h3>
+                            <h3 onclick="showModalCreating(${plant.id})" class="font-semibold text-lg mb-2 cursor-pointer">${plant.name}</h3>
                             <p class="text-sm text-gray-600 mb-3">${plant.description}</p>
                             <div class="flex justify-between items-center mb-3">
                                 <span class="text-sm text-green-500 bg-[#15803D10] rounded-full font-medium">${plant.category}</span>
@@ -155,15 +182,15 @@ const showModalDisplay = (plant) => {
   modalDetails.innerHTML = `
   <div class="card bg-base-100 w-full">
   <div class="card-body">
-    <h2 class="card-title text-bold">${plant.name}</h2>
+    <h2 class="card-title text-bold ">${plant.name}</h2>
     <img
                                                 src="${plant.image}"
                                                 alt="${plant.name}"
                                                 class="object-cover h-48 w-full rounded-md"
                                         />
-    <span>Category: ${plant.category}</span>
-    <span>Price: ${plant.price}</span>
-    <p>Description: ${plant.description}</p>
+    <span><strong>Category</strong>: ${plant.category}</span>
+    <span><strong>Price</strong>: ${plant.price}</span>
+    <p><strong>Description</strong>: ${plant.description}</p>
     
   </div>
 </div>
