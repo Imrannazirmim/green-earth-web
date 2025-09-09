@@ -1,169 +1,151 @@
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-006
+### 1) What is the difference between var, let, and const?
 
-### 📅 Deadline For 60 marks: 9th September, 2025 (11:59 pm ⏱️)
+- Javascript keywords `var`, `let`, `const` use for declare variables. but three different behavior or working.
 
-### 📅 Deadline For 50 marks : 13th September , 2025 (6:00 pm⏱️)
+- `var` functional scope or global scope. It is accessible anywhere inside the function where it is declared, and it is
+  not block scope.
 
-### 📅 Deadline For 30 marks: Any time after 13the September , 2025 (6:01 pm⏱️).
+- `let` is block-scoped but uninitialized. `let` cannot be re-declared in the same scope, `let` declare value Mutable
+  means updated or
+  changing.
 
----
-# Green Earth
+- `const` is block-scoped but uninitialized. `const` cannot be reassigned and holding objects or arrays. `const` declare
+  value immutable means not changing value.
 
+**Example:**
 
-## Private Repository: https://classroom.github.com/a/nVZrg5R9 
+```javascript
+`var`
 
-## Alternative Private Repository: https://classroom.github.com/a/KCGI14ST 
+var greet = 'hi there';
+var greet = 'this is var scope' // override this scope
 
-## Alternative Private Repository: https://classroom.github.com/a/JMuIYqgK 
+if (true) {
+    var greet = 'amazing scope' // return this value
+}
 
+function sayGreet() {
+    var hello = 'hello'
+}
 
----
-🌴 API Endpoints
----
-1. Get 🌴All Plants
-```bash
-https://openapi.programming-hero.com/api/plants
+console.log(hello) // reference hello is define
+console.log(greet)
+
+    `let`
+
+let learn = 'i love js';
+learn = 'this is awesome js' // mutable value
+if (true) {
+    let learn = 'i hate js';
+    console.log(learn) // first time run
+    let hello = 'hey, hello';
+    console.log(hello)
+}
+console.log(learn)
+console.log(hello) // error hello is defined
+
+//output: i hate js
+//output: i love js
+
+    `const`
+
+const student = {
+    name: 'javascript',
+    age: 22,
+}
+
+student.name = 'python';
+console.log(student.name) //output: python
+
+    `but`
+
+function hello() {
+    const message = 'this is scope'
+}
+
+console.log(message) // error message is not defined
 ```
 
-2. Get 🌴All categories <br/>
-```bash
-https://openapi.programming-hero.com/api/categories
+### 2) What is the difference between map(), forEach(), and filter()?
+
+- `forEach()` mainly same to  `for` side effects, returns undefined. use for array all data looping one by one each
+  element.
+
+- `map()` use for a new creating array by applying a function to each element.
+
+- `filter()`  Creates a new array with elements that pass a given conditional statement and return condition value.
+
+Example:
+
+```javascript
+ const numbers = [1, 2, 3, 5, 9, 2, 4, 8, 5, 6, 2];
+
+//foreach
+numbers.forEach((num) => console.log(num))
+
+// map → transformation
+const doubledNumber = numbers.map(num => num * 2);
+console.log(doubledNumber); // [2,4,6,  10,18,4,8,16,10,12,4 ]
+
+// filter
+const evenNum = numbers.filter(num => num % 2 === 0);
+console.log(evenNum); // [2, 2, 4, 8, 6, 2]
 ```
 
+### 3) What are arrow functions in ES6?
 
-3. Get 🌴plants by categories <br/>
-```bash
-https://openapi.programming-hero.com/api/category/${id}
+Arrow functions are a concise way to write functions. Best used for arrow function in callbacks and array methods and
+easy for use.
+
+Example:
+
+```javascript
+// javascript simple function
+function sum(a, b) {
+    return a + b;
+}
+
+// javascript Arrow function
+const sum = (a, b) => a + b;
+
+console.log(sum(2, 3)); // 5
 ```
 
-```bash
-https://openapi.programming-hero.com/api/category/1
+- Javascript arrow function best for Short syntax, great for array operations.
+- Javascript arrow function not be used as constructors, no arguments object.
+
+### 4) How does destructuring assignment work in ES6?
+
+- Destructuring means extract values from arrays or objects into separate variables and copy the element.
+
+```javascript
+
+// Destructuring Array Example:
+
+const numbers = [1, 2, 3];
+const [a, b, c] = numbers;
+console.log(a, b, c); // 1, 2, 3
+
+// Destructuring: objects Emaxple:
+
+const person = {name: "jodu", age: 25};
+const {name, age} = person;
+console.log(name, age); // jodu, 25
 ```
 
-4. Get 🌴Plants Detail <br/>
+### 5) Explain template literals in ES6. How are they different from string concatenation?
 
-```bash
-https://openapi.programming-hero.com/api/plant/${id}
+Javascript template literals use backticks (`) and allow string multi-line embedded expressions.
+
+Example:
+
+```javascript
+const student = {
+    name: 'jodu',
+    age: 22,
+    gpa: 5,
+    pass: true
+}
+const studentDetails = `${student.name}, ${student.age}, ${student.gpa}, ${student.pass}`;
+console.log((studentDetails));
 ```
-
-```bash
-https://openapi.programming-hero.com/api/plant/1
-```
----
-
-
-
-
-## ✅ Main Requirements 
-
-#### 1) Navbar
-
-- Website **logo/name** on the **left**  
-- **Menu items** in the **center** 
-- **Plant a Tree button** on the **right** 
-
-#### 2) Banner 
-- A **background image**  
-- A **title** and **subtitle**  
-- A **centered button**  
-
-#### 3) About Campaign
-- **Section heading**  
-- **Image on the left**, **text on the right**  
-
-#### 4) Our Impact Section 
-- Show **3 cards** with campaign **statistics**  
-
-#### 5) Plant a Tree Today Section & Footer
-- **Form**: Name, Email, Number of Trees  
-- **Footer** with copyright info 
-
-#### 6) Responsiveness 
-- Website must be **mobile responsive**  
-
----
-#### 7) Create a README file to answer the following question-
-
-
-#### 1) What is the difference between var, let, and const?
-
-#### 2) What is the difference between map(), forEach(), and filter()? 
-
-#### 3) What are arrow functions in ES6?
-
-#### 4) How does destructuring assignment work in ES6?
-
-#### 5) Explain template literals in ES6. How are they different from string concatenation?
-
-## ⚙️ Functionalities 
-
-1) Category Loading 
-Load Tree Categories dynamically on the left side.
-
-2) Category Click → Tree Data 
-On clicking a category: load trees of that category.
-
-Display in a 3-column card layout.
-
-3) Card Contents 
- Each card includes:
-
-        - Image
-
-        -  Name
-
-        - Short description
-
-        - Category
-
-        - Price
-
-        - Add to Cart button
-
-4) Modal on Card Click 
-Clicking a tree name on a card opens a modal with full tree details.
-
-
-##  🧪 Challenges 
-
-
-    1) Add to Cart 
-    Clicking Add to Cart: - Adds the tree to Cart List
-                          - Shows tree name 
-
-    2) Total Calculation 
-    Calculate total price of trees in cart.
-
-    3) Remove from Cart 
-    Clicking ❌ removes tree and deducts price from total.
-
-    4) Loading Spinner
-    Show spinner while data is loading.
-
-    5) Active Button State 
-    Highlight active category button when selected.
-
-
-
-🧰 Technology Stack:
-        
-        HTML
-
-        CSS (Vanilla / Tailwind / DaisyUI)
-
-        JavaScript (Vanilla only, no frameworks)
-
-📌 Rules
-✅ At least 5 meaningful commits
-
-❌ No dummy text or Lorem Ipsum — must use relevant content
-
-
-
-
-
-## 🔗 Submission
-- **Live Link :** YOUR_DEPLOYED_URL_HERE  
-- **GitHub Private Repository:** YOUR_REPO_URL_HERE  
-
----

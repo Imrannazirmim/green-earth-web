@@ -31,6 +31,8 @@ const loadingAllPlants = async () => {
     const url = `https://openapi.programming-hero.com/api/plants`;
     const res = await fetch(url);
     const data = await res.json();
+    removeActiveList();
+    allTreesBtn.classList.add("active");
     displayLoadingAllPlants(data.plants);
     hideSpinner();
   } catch (error) {
@@ -118,8 +120,8 @@ const categoryDisplaySelection = (categories) => {
     createDiv.classList.add("categories");
     createDiv.innerHTML = `
     <li>
-      <button onclick="categoryUniqueCard(${category.id})" id="category-container"
-                      class="w-full text-left px-3 py-2 rounded hover:bg-[#15803D] hover:text-white  transition-colors"
+      <button onclick="categoryUniqueCard(${category.id})" id="category-container-${category.id}"
+                      class="list-item w-full text-left px-3 py-2 rounded hover:bg-[#15803D] hover:text-white  transition-colors"
                 >${category.category_name}</button>
                 
                 </li>
@@ -128,12 +130,21 @@ const categoryDisplaySelection = (categories) => {
   }
 };
 
+const removeActiveList = () => {
+  const listItems = document.querySelectorAll(".list-item");
+  listItems.forEach((list) => list.classList.remove("active"));
+  if (allTreesBtn) allTreesBtn.classList.remove("active");
+};
+
 const categoryUniqueCard = async (id) => {
   try {
     showSpinnerLoading();
     const url = `https://openapi.programming-hero.com/api/category/${id}`;
     const res = await fetch(url);
     const data = await res.json();
+    removeActiveList();
+    const activeBtn = document.getElementById(`category-container-${id}`);
+    if (activeBtn) activeBtn.classList.add("active");
     displayUniqueCategory(data.plants);
     hideSpinner();
   } catch (error) {
